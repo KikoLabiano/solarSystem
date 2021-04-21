@@ -1,6 +1,6 @@
 window.onload = function () {
-  // let root = document.querySelector(':root');
-  // var rs = getComputedStyle(root);
+  let root = document.querySelector(':root');
+  var rs = getComputedStyle(root);
   // root.style.setProperty('--mercurio-speed', Number(rs.getPropertyValue('--mercurio-speed').slice(0, -1)) / 3 + 's');
 
   const NUMBER_STARS = 200;
@@ -18,4 +18,21 @@ window.onload = function () {
   };
 
   generateStars();
+
+  const playStopAnimation = document.getElementById('playStopAnimation');
+  playStopAnimation.addEventListener('click', () => {
+    if (playStopAnimation.classList.contains('paused')) {
+      playStopAnimation.classList.remove('paused');
+      const orbitas = document.getElementsByClassName('orbita');
+      [...orbitas].forEach(orbita => {
+        orbita.style['animation-play-state'] = 'running';
+      });
+    } else {
+      playStopAnimation.classList.add('paused');
+      const orbitas = document.getElementsByClassName('orbita');
+      [...orbitas].forEach(orbita => {
+        orbita.style['animation-play-state'] = 'paused';
+      });
+    }
+  });
 };
