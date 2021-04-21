@@ -6,3 +6,4 @@ https://www.freepik.es/vector-gratis/planetas-sistema-solar-infografia-cuadros-i
 #Velocidad orbital real
 #Mejorar planetas
 #Tooltip con info de los planetas
+#Botón play/pause animation (animation-play-state:paused/running)

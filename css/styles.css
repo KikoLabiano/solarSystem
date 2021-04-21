@@ -1,3 +1,15 @@
+:root {
+  --mercurio-speed: 2.2408s;
+  --venus-speed: 6.152s;
+  --tierra-speed: 10s;
+  --luna-speed: 0.74s;
+  --marte-speed: 18.808s;
+  --jupiter-speed: 118.626s;
+  --saturno-speed: 294.474s;
+  --urano-speed: 840.068s;
+  --neptuno-speed: 1647.913s;
+}
+
 body {
   background-color: black;
 }
@@ -31,7 +43,7 @@ span.text {
 }
 img.planetaThumb {
   width: 100px;
-  heigth: 100px;
+  height: 100px;
 }
 #infoDialogContent {
   height: 100%;
@@ -40,19 +52,19 @@ img.planetaThumb {
 /* Sistema solar */
 
 #sistemaSolar {
-  position: relative;
-  top: 25px;
-  left: 25px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   height: 800px;
   width: 800px;
-  /* margin:500px 0 0 500px; */
 }
 #solOrbita span {
-  top: 340px;
-  left: 840px;
-  position: relative;
+  top: 50%;
+  left: 50%;
+  position: fixed;
   opacity: 1;
-  z-index: 9;
 }
 #solOrbita:hover ~ span {
   color: red;
@@ -60,8 +72,8 @@ img.planetaThumb {
 }
 #sol {
   position: absolute;
-  top: 300px;
-  left: 800px;
+  top: 50%;
+  left: 50%;
   width: 100px;
   height: 100px;
   border-radius: 100%;
@@ -72,15 +84,15 @@ img.planetaThumb {
 
 #mercurioOrbita {
   position: absolute;
-  top: 275px;
-  left: 775px;
-  width: 150px;
-  height: 150px;
+  top: 46%;
+  left: 46%;
+  width: 20%;
+  height: 20%;
   border: 2px #5490ff dashed;
   border-radius: 100%;
   z-index: 8;
-  -webkit-animation: spin-right 5s linear infinite;
-  animation: spin-right 5s linear infinite;
+  -webkit-animation: spin-right var(--mercurio-speed) linear infinite;
+  animation: spin-right var(--mercurio-speed) linear infinite;
 }
 
 #mercurio {
@@ -98,7 +110,6 @@ img.planetaThumb {
   left: -35px;
   position: relative;
   opacity: 0;
-  z-index: 1;
 }
 
 #mercurio:hover ~ span {
@@ -107,15 +118,15 @@ img.planetaThumb {
 
 #venusOrbita {
   position: absolute;
-  top: 235px;
-  left: 735px;
-  width: 225px;
-  height: 225px;
+  top: 42%;
+  left: 42%;
+  width: 28%;
+  height: 28%;
   border: 2px #5490ff dashed;
   border-radius: 100%;
   z-index: 7;
-  -webkit-animation: spin-right 10s linear infinite;
-  animation: spin-right 10s linear infinite;
+  -webkit-animation: spin-right var(--venus-speed) linear infinite;
+  animation: spin-right var(--venus-speed) linear infinite;
 }
 
 #venus {
@@ -133,7 +144,6 @@ img.planetaThumb {
   left: 7px;
   position: relative;
   opacity: 0;
-  z-index: 1;
 }
 
 #venus:hover ~ span {
@@ -142,15 +152,15 @@ img.planetaThumb {
 
 #tierraOrbita {
   position: absolute;
-  top: 200px;
-  left: 700px;
-  width: 300px;
-  height: 300px;
+  top: 37%;
+  left: 37%;
+  width: 38%;
+  height: 38%;
   border: 2px #5490ff dashed;
   border-radius: 100%;
   z-index: 6;
-  -webkit-animation: spin-right 15s linear infinite;
-  animation: spin-right 15s linear infinite;
+  -webkit-animation: spin-right var(--tierra-speed) linear infinite;
+  animation: spin-right var(--tierra-speed) linear infinite;
 }
 
 #tierra {
@@ -168,24 +178,46 @@ img.planetaThumb {
   left: 120px;
   position: relative;
   opacity: 0;
-  z-index: 1;
 }
 
 #tierra:hover ~ span {
   opacity: 1;
 }
 
+#lunaOrbita {
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  width: 135%;
+  height: 135%;
+  border: 2px #5490ff dotted;
+  border-radius: 100%;
+  z-index: 6;
+  -webkit-animation: spin-right var(--luna-speed) linear infinite;
+  animation: spin-right var(--luna-speed) linear infinite;
+}
+
+#luna {
+  top: -17px;
+  left: 125px;
+  height: 8px;
+  width: 8px;
+  border-radius: 100%;
+  border: 1px solid black;
+  background-color: gray;
+}
+
 #marteOrbita {
   position: absolute;
-  top: 150px;
-  left: 650px;
-  width: 400px;
-  height: 400px;
+  top: 32%;
+  left: 32%;
+  width: 48%;
+  height: 48%;
   border: 2px #5490ff dashed;
   border-radius: 100%;
   z-index: 5;
-  -webkit-animation: spin-right 20s linear infinite;
-  animation: spin-right 20s linear infinite;
+  -webkit-animation: spin-right var(--marte-speed) linear infinite;
+  animation: spin-right var(--marte-speed) linear infinite;
 }
 
 #marte {
@@ -204,7 +236,6 @@ img.planetaThumb {
   left: 110px;
   position: relative;
   opacity: 0;
-  z-index: 1;
 }
 
 #marte:hover ~ span {
@@ -213,15 +244,15 @@ img.planetaThumb {
 
 #jupiterOrbita {
   position: absolute;
-  top: 80px;
-  left: 580px;
-  width: 540px;
-  height: 540px;
+  top: 25%;
+  left: 25%;
+  width: 62%;
+  height: 62%;
   border: 2px #5490ff dashed;
   border-radius: 100%;
   z-index: 4;
-  -webkit-animation: spin-right 30s linear infinite;
-  animation: spin-right 30s linear infinite;
+  -webkit-animation: spin-right var(--jupiter-speed) linear infinite;
+  animation: spin-right var(--jupiter-speed) linear infinite;
 }
 
 #jupiterOrbita:hover {
@@ -230,7 +261,7 @@ img.planetaThumb {
 
 #jupiter {
   position: absolute;
-  top: 0px;
+  top: -7px;
   left: 125px;
   height: 50px;
   width: 50px;
@@ -242,7 +273,6 @@ img.planetaThumb {
 #jupiter:after {
   content: '';
   position: absolute;
-  z-index: 1;
   top: 0;
   bottom: 0;
   left: 50%;
@@ -255,7 +285,6 @@ img.planetaThumb {
   left: 115px;
   position: relative;
   opacity: 0;
-  z-index: 1;
   transform: rotate(-5deg);
 }
 
@@ -265,20 +294,20 @@ img.planetaThumb {
 
 #saturnoOrbita {
   position: absolute;
-  top: -10px;
-  left: 480px;
-  width: 740px;
-  height: 740px;
+  top: 16%;
+  left: 16%;
+  width: 80%;
+  height: 80%;
   border: 2px #5490ff dashed;
   border-radius: 100%;
   z-index: 3;
-  -webkit-animation: spin-right 35s linear infinite;
-  animation: spin-right 35s linear infinite;
+  -webkit-animation: spin-right var(--saturno-speed) linear infinite;
+  animation: spin-right var(--saturno-speed) linear infinite;
 }
 
 #saturno {
   position: absolute;
-  top: 50px;
+  top: 30px;
   left: 125px;
   height: 40px;
   width: 40px;
@@ -289,7 +318,7 @@ img.planetaThumb {
 
 #saturnoAnillos {
   position: absolute;
-  top: 65px;
+  top: 45px;
   left: 105px;
   height: 10px;
   width: 80px;
@@ -304,7 +333,6 @@ img.planetaThumb {
   left: 120px;
   position: relative;
   opacity: 0;
-  z-index: 9;
 }
 
 #saturno:hover ~ span {
@@ -312,6 +340,66 @@ img.planetaThumb {
 }
 #saturnoAnillos:hover ~ span {
   opacity: 1;
+}
+
+#uranoOrbita {
+  position: absolute;
+  top: 6%;
+  left: 6%;
+  width: 100%;
+  height: 100%;
+  border: 2px #5490ff dashed;
+  border-radius: 100%;
+  z-index: 2;
+  -webkit-animation: spin-right var(--urano-speed) linear infinite;
+  animation: spin-right var(--urano-speed) linear infinite;
+}
+
+#urano {
+  position: absolute;
+  top: 65px;
+  left: 125px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  border: 1px solid black;
+  background-color: #acf6f5;
+}
+
+#uranoAnillos {
+  position: absolute;
+  top: 82px;
+  left: 115px;
+  height: 5px;
+  width: 60px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color: #c1c1c1;
+  transform: rotate(180deg);
+}
+
+#neptunoOrbita {
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  width: 125%;
+  height: 125%;
+  border: 2px #5490ff dashed;
+  border-radius: 100%;
+  z-index: 1;
+  -webkit-animation: spin-right var(--neptuno-speed) linear infinite;
+  animation: spin-right var(--neptuno-speed) linear infinite;
+}
+
+#neptuno {
+  position: absolute;
+  top: 125px;
+  left: 125px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  border: 1px solid black;
+  background-color: #3549bb;
 }
 
 /* Estrellas */

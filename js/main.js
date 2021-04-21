@@ -1,4 +1,8 @@
 window.onload = function () {
+  // let root = document.querySelector(':root');
+  // var rs = getComputedStyle(root);
+  // root.style.setProperty('--mercurio-speed', Number(rs.getPropertyValue('--mercurio-speed').slice(0, -1)) / 3 + 's');
+
   const NUMBER_STARS = 200;
   const STAR_TYPES = ['estrellaMini', 'estrellaMediana', 'estrellaGrande'];
 
