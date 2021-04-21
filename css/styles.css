@@ -1,0 +1,401 @@
+body {
+  background-color: black;
+}
+div {
+  cursor: pointer;
+}
+span.text {
+  font-family: 'Pacifico', cursive;
+  color: green;
+  text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff,
+    -1px 1px 0 #fff;
+}
+#infoDialog {
+  height: 550px;
+  width: 450px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 10px;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+}
+#infoDialogHeader {
+  display: flex;
+  vertical-align: middle;
+  font-size: 22pt;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+}
+img.planetaThumb {
+  width: 100px;
+  heigth: 100px;
+}
+#infoDialogContent {
+  height: 100%;
+}
+
+/* Sistema solar */
+
+#sistemaSolar {
+  position: relative;
+  top: 25px;
+  left: 25px;
+  height: 800px;
+  width: 800px;
+  /* margin:500px 0 0 500px; */
+}
+#solOrbita span {
+  top: 340px;
+  left: 840px;
+  position: relative;
+  opacity: 1;
+  z-index: 9;
+}
+#solOrbita:hover ~ span {
+  color: red;
+  opacity: 1;
+}
+#sol {
+  position: absolute;
+  top: 300px;
+  left: 800px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: yellow;
+  box-shadow: 0 0 160px 0px yellow, 0 0 30px -4px yellow, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+  animation: 2.75s llamaradaSolar linear infinite;
+}
+
+#mercurioOrbita {
+  position: absolute;
+  top: 275px;
+  left: 775px;
+  width: 150px;
+  height: 150px;
+  border: 2px #5490ff dashed;
+  border-radius: 100%;
+  z-index: 8;
+  -webkit-animation: spin-right 5s linear infinite;
+  animation: spin-right 5s linear infinite;
+}
+
+#mercurio {
+  position: absolute;
+  top: 62px;
+  left: -6px;
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
+  border: 1px solid black;
+  background-color: gray;
+}
+#mercurio ~ span {
+  top: 35px;
+  left: -35px;
+  position: relative;
+  opacity: 0;
+  z-index: 1;
+}
+
+#mercurio:hover ~ span {
+  opacity: 1;
+}
+
+#venusOrbita {
+  position: absolute;
+  top: 235px;
+  left: 735px;
+  width: 225px;
+  height: 225px;
+  border: 2px #5490ff dashed;
+  border-radius: 100%;
+  z-index: 7;
+  -webkit-animation: spin-right 10s linear infinite;
+  animation: spin-right 10s linear infinite;
+}
+
+#venus {
+  position: absolute;
+  top: 25px;
+  left: 17px;
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  background-color: orange;
+  border: 1px solid black;
+}
+#venus ~ span {
+  top: 7px;
+  left: 7px;
+  position: relative;
+  opacity: 0;
+  z-index: 1;
+}
+
+#venus:hover ~ span {
+  opacity: 1;
+}
+
+#tierraOrbita {
+  position: absolute;
+  top: 200px;
+  left: 700px;
+  width: 300px;
+  height: 300px;
+  border: 2px #5490ff dashed;
+  border-radius: 100%;
+  z-index: 6;
+  -webkit-animation: spin-right 15s linear infinite;
+  animation: spin-right 15s linear infinite;
+}
+
+#tierra {
+  position: absolute;
+  top: -17px;
+  left: 125px;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  border: 1px solid black;
+  background-color: #4d8cff;
+}
+#tierra ~ span {
+  top: -35px;
+  left: 120px;
+  position: relative;
+  opacity: 0;
+  z-index: 1;
+}
+
+#tierra:hover ~ span {
+  opacity: 1;
+}
+
+#marteOrbita {
+  position: absolute;
+  top: 150px;
+  left: 650px;
+  width: 400px;
+  height: 400px;
+  border: 2px #5490ff dashed;
+  border-radius: 100%;
+  z-index: 5;
+  -webkit-animation: spin-right 20s linear infinite;
+  animation: spin-right 20s linear infinite;
+}
+
+#marte {
+  position: absolute;
+  top: 0px;
+  left: 125px;
+  height: 15px;
+  width: 15px;
+  border-radius: 100%;
+  border: 1px solid black;
+  background-color: red;
+}
+
+#marte ~ span {
+  top: -20px;
+  left: 110px;
+  position: relative;
+  opacity: 0;
+  z-index: 1;
+}
+
+#marte:hover ~ span {
+  opacity: 1;
+}
+
+#jupiterOrbita {
+  position: absolute;
+  top: 80px;
+  left: 580px;
+  width: 540px;
+  height: 540px;
+  border: 2px #5490ff dashed;
+  border-radius: 100%;
+  z-index: 4;
+  -webkit-animation: spin-right 30s linear infinite;
+  animation: spin-right 30s linear infinite;
+}
+
+#jupiterOrbita:hover {
+  border: 2px white dashed;
+}
+
+#jupiter {
+  position: absolute;
+  top: 0px;
+  left: 125px;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  border: 1px solid black;
+  background-color: brown;
+}
+
+#jupiter:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 8px solid orange;
+  transform: translate(-50%) rotate(65deg);
+}
+
+#jupiter ~ span {
+  top: -20px;
+  left: 115px;
+  position: relative;
+  opacity: 0;
+  z-index: 1;
+  transform: rotate(-5deg);
+}
+
+#jupiter:hover ~ span {
+  opacity: 1;
+}
+
+#saturnoOrbita {
+  position: absolute;
+  top: -10px;
+  left: 480px;
+  width: 740px;
+  height: 740px;
+  border: 2px #5490ff dashed;
+  border-radius: 100%;
+  z-index: 3;
+  -webkit-animation: spin-right 35s linear infinite;
+  animation: spin-right 35s linear infinite;
+}
+
+#saturno {
+  position: absolute;
+  top: 50px;
+  left: 125px;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  border: 1px solid black;
+  background-color: orange;
+}
+
+#saturnoAnillos {
+  position: absolute;
+  top: 65px;
+  left: 105px;
+  height: 10px;
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid black;
+  background-color: brown;
+  transform: rotate(180deg);
+}
+
+#saturno ~ span {
+  top: 50px;
+  left: 120px;
+  position: relative;
+  opacity: 0;
+  z-index: 9;
+}
+
+#saturno:hover ~ span {
+  opacity: 1;
+}
+#saturnoAnillos:hover ~ span {
+  opacity: 1;
+}
+
+/* Estrellas */
+.estrella {
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+}
+
+.estrellaMini {
+  height: 2px;
+  width: 2px;
+  animation: 0.2s estrella linear infinite;
+}
+
+.estrellaMediana {
+  height: 4px;
+  width: 4px;
+  animation: 0.5s estrella linear infinite;
+}
+
+.estrellaGrande {
+  height: 6px;
+  width: 6px;
+  animation: 2s estrellaGrande linear infinite;
+}
+
+@-webkit-keyframes spin-right {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes estrella {
+  0% {
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.05);
+  }
+  50% {
+    box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.05);
+  }
+}
+
+@keyframes estrellaGrande {
+  0% {
+    width: 6px;
+    height: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 1);
+  }
+  20% {
+    width: 4px;
+    height: 4px;
+    background-color: #ffc4c4;
+    box-shadow: 0 0 10px 0px rgb(255, 196, 196, 1);
+  }
+  80% {
+    width: 5px;
+    width: 5px;
+    background-color: #c4cfff;
+    box-shadow: 0 0 10px 0px rgb(196, 207, 255, 1);
+  }
+  100% {
+    width: 6px;
+    height: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 0px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes llamaradaSolar {
+  0% {
+    box-shadow: 0 0 150px 0px #ff9b1c, 0 0 25px -4px #ff9b1c, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+  }
+  20% {
+    box-shadow: 0 0 140px 0px #ff9814, 0 0 20px -4px #ff9814, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+  }
+  80% {
+    box-shadow: 0 0 160px 0px #fbac0e, 0 0 40px -4px #fbac0e, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+  }
+  100% {
+    box-shadow: 0 0 150px 0px #ff9b1c, 0 0 25px -4px #ff9b1c, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+  }
+}
