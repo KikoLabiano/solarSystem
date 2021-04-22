@@ -32,11 +32,17 @@ window.onload = function () {
     //Slow down
     const slowAnimation = document.getElementById('slowAnimation');
     slowAnimation.addEventListener('click', () => {
-      PLANETS.forEach(planet => {
-        root.style.setProperty(
-          `--${planet}-speed`,
-          Number(rs.getPropertyValue(`--${planet}-speed`).slice(0, -1)) * 10 + 's'
-        );
+      // PLANETS.forEach(planet => {
+      //   root.style.setProperty(
+      //     `--${planet}-speed`,
+      //     Number(rs.getPropertyValue(`--${planet}-speed`).slice(0, -1)) * 10 + 's'
+      //   );
+      const orbits = document.getElementsByClassName('orbita');
+      // });
+      [...orbits].forEach(orbit => {
+        console.log(orbit.style['animation-duration'].slice(0, -1));
+        orbit.style['animation-duration'] = Number(orbit.style['animation-duration'].slice(0, -1)) / 10 + 's';
+        console.log(orbit.style['animation-duration']);
       });
     });
   };
