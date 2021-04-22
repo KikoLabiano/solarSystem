@@ -1,6 +1,46 @@
 window.onload = function () {
-  let root = document.querySelector(':root');
-  var rs = getComputedStyle(root);
+  const PLANETS = ['mercurio', 'venus', 'tierra', 'marte', 'jupiter', 'saturno', 'urano', 'neptuno'];
+
+  const buttonsBinding = () => {
+    let root = document.querySelector(':root');
+    var rs = getComputedStyle(root);
+    //Play/pause
+    const playStopAnimation = document.getElementById('playStopAnimation');
+    const playStopAnimationIcon = document.getElementById('playStopAnimationIcon');
+    playStopAnimation.addEventListener('click', () => {
+      if (playStopAnimation.classList.contains('paused')) {
+        playStopAnimation.classList.remove('paused');
+        playStopAnimation.classList.remove('activeButton');
+        playStopAnimationIcon.classList.remove('fa-play');
+        playStopAnimationIcon.classList.add('fa-pause');
+        const orbits = document.getElementsByClassName('orbita');
+        [...orbits].forEach(orbit => {
+          orbit.style['animation-play-state'] = 'running';
+        });
+      } else {
+        playStopAnimation.classList.add('paused');
+        playStopAnimation.classList.add('activeButton');
+        playStopAnimationIcon.classList.remove('fa-pause');
+        playStopAnimationIcon.classList.add('fa-play');
+        const orbits = document.getElementsByClassName('orbita');
+        [...orbits].forEach(orbit => {
+          orbit.style['animation-play-state'] = 'paused';
+        });
+      }
+    });
+
+    //Slow down
+    const slowAnimation = document.getElementById('slowAnimation');
+    slowAnimation.addEventListener('click', () => {
+      PLANETS.forEach(planet => {
+        root.style.setProperty(
+          `--${planet}-speed`,
+          Number(rs.getPropertyValue(`--${planet}-speed`).slice(0, -1)) * 10 + 's'
+        );
+      });
+    });
+  };
+
   // root.style.setProperty('--mercurio-speed', Number(rs.getPropertyValue('--mercurio-speed').slice(0, -1)) / 3 + 's');
 
   const NUMBER_STARS = 200;
@@ -18,21 +58,5 @@ window.onload = function () {
   };
 
   generateStars();
-
-  const playStopAnimation = document.getElementById('playStopAnimation');
-  playStopAnimation.addEventListener('click', () => {
-    if (playStopAnimation.classList.contains('paused')) {
-      playStopAnimation.classList.remove('paused');
-      const orbitas = document.getElementsByClassName('orbita');
-      [...orbitas].forEach(orbita => {
-        orbita.style['animation-play-state'] = 'running';
-      });
-    } else {
-      playStopAnimation.classList.add('paused');
-      const orbitas = document.getElementsByClassName('orbita');
-      [...orbitas].forEach(orbita => {
-        orbita.style['animation-play-state'] = 'paused';
-      });
-    }
-  });
+  buttonsBinding();
 };
