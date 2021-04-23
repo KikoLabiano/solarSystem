@@ -1,5 +1,40 @@
 window.onload = function () {
-  const PLANETS = ['mercurio', 'venus', 'tierra', 'marte', 'jupiter', 'saturno', 'urano', 'neptuno'];
+  const SOLAR_SYSTEM_OBJECTS = [
+    'mercurio',
+    'venus',
+    'tierra',
+    'luna',
+    'marte',
+    'deimos',
+    'phobos',
+    'jupiter',
+    'saturno',
+    'urano',
+    'neptuno'
+  ];
+
+  // var currentPercent = 0;
+  // var showPercent = window.setInterval(function () {
+  //   if (currentPercent < 100) {
+  //     currentPercent += 1;
+  //   } else {
+  //     currentPercent = 0;
+  //   }
+  //   // Updates a div that displays the current percent
+  //   console.log(currentPercent);
+  // }, 40);
+
+  // function findKeyframesRule(rule) {
+  //   var ss = document.styleSheets;
+  //   for (var i = 0; i < ss.length; ++i) {
+  //     for (var j = 0; j < ss[i].cssRules.length; ++j) {
+  //       if (ss[i].cssRules[j].type == window.CSSRule.WEBKIT_KEYFRAMES_RULE && ss[i].cssRules[j].name == rule) {
+  //         return ss[i].cssRules[j];
+  //       }
+  //     }
+  //   }
+  //   return null;
+  // }
 
   const buttonsBinding = () => {
     let root = document.querySelector(':root');
@@ -32,17 +67,22 @@ window.onload = function () {
     //Slow down
     const slowAnimation = document.getElementById('slowAnimation');
     slowAnimation.addEventListener('click', () => {
-      // PLANETS.forEach(planet => {
-      //   root.style.setProperty(
-      //     `--${planet}-speed`,
-      //     Number(rs.getPropertyValue(`--${planet}-speed`).slice(0, -1)) * 10 + 's'
-      //   );
-      const orbits = document.getElementsByClassName('orbita');
-      // });
-      [...orbits].forEach(orbit => {
-        console.log(orbit.style['animation-duration'].slice(0, -1));
-        orbit.style['animation-duration'] = Number(orbit.style['animation-duration'].slice(0, -1)) / 10 + 's';
-        console.log(orbit.style['animation-duration']);
+      SOLAR_SYSTEM_OBJECTS.forEach(solarSystemObject => {
+        root.style.setProperty(
+          `--${solarSystemObject}-speed`,
+          Number(rs.getPropertyValue(`--${solarSystemObject}-speed`).slice(0, -1)) * 1.25 + 's'
+        );
+      });
+    });
+
+    //Forward
+    const accelerateAnimation = document.getElementById('accelerateAnimation');
+    accelerateAnimation.addEventListener('click', () => {
+      SOLAR_SYSTEM_OBJECTS.forEach(solarSystemObject => {
+        root.style.setProperty(
+          `--${solarSystemObject}-speed`,
+          Number(rs.getPropertyValue(`--${solarSystemObject}-speed`).slice(0, -1)) / 1.25 + 's'
+        );
       });
     });
   };
