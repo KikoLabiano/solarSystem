@@ -11,15 +11,43 @@
     <script type="text/javascript" src="js/main.js"></script>
   </head>
   <body id="universo">
-    <div id="infoDialog">
-      <div id="infoDialogHeader">
-        <span class="text">Jupiter</span>
+    <div id="astroInfoDialog">
+      <div id="astroInfoDialogHeader">
+        <span id="astroObjectTitle" class="title"></span>
         <img
-          class="planetaThumb"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Jupiter_by_Cassini-Huygens.jpg/280px-Jupiter_by_Cassini-Huygens.jpg"
+          class="astroObjectThumb"
+          id="astroObjectThumbId"
+          src=""
         />
       </div>
-      <div id="infoDialogContent"></div>
+      <div id="astroInfoDialogContent">
+        <div>
+          <span class="text">Tipo de objeto: </span>
+          <span id="objectType"></span>
+        </div>
+        <div>
+          <span>Tamaño: </span>
+          <span id="size"></span>
+        </div>
+        <div>
+          <span>Tipo de material: </span>
+          <span id="type"></span>
+        </div>
+        <div>
+          <span>Periodo de traslación: </span>
+          <span id="translationPeriod"></span>
+        </div>
+        <div>
+          <span>Periodo de rotación: </span>
+          <span id="rotationPeriod"></span>
+        </div>
+        <div>
+          <span>¿Sabías que...? </span>          
+        </div>
+        <div>
+          <span id="quote"></span>
+        </div>
+      </div>
     </div>
     <div id="menu">
       <div class="controlButtons">
@@ -33,10 +61,8 @@
         <span id="speedInfo"></span>
       </div>
     </div>
-    <div id="sistemaSolar">
-      <div id="solOrbita">
-        <div id="sol"></div>
-      </div>
+    <div id="sistemaSolar">      
+        <div id="sol"></div>      
       <div class="orbita" id="mercurioOrbita">
         <div id="mercurio"></div>
       </div>

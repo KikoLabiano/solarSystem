@@ -1,4 +1,104 @@
 window.onload = function () {
+  const ASTRO_TYPES = { star: 0, planet: 1, dwarfPlanet: 2, satellite: 3 };
+  const ASTRO_INFO = {
+    sol: {
+      objectType: ASTRO_TYPES.star,
+      size: 100,
+      type: 'Gaseoso',
+      translationPeriod: 0,
+      rotationPeriod: 12,
+      quote: 'sdfas...'
+    },
+    mercurio: {
+      objectType: ASTRO_TYPES.planet,
+      size: 5,
+      type: 'Rocoso',
+      translationPeriod: 27,
+      rotationPeriod: 12,
+      quote: 'sdfas...'
+    },
+    venus: {
+      objectType: ASTRO_TYPES.planet,
+      size: 5,
+      type: 'Rocoso',
+      translationPeriod: 27,
+      rotationPeriod: 12,
+      quote: 'sdfas...'
+    },
+    tierra: {
+      objectType: ASTRO_TYPES.planet,
+      size: 5,
+      type: 'Rocoso',
+      translationPeriod: 27,
+      rotationPeriod: 12,
+      quote: 'sdfas...'
+    },
+    luna: {
+      objectType: ASTRO_TYPES.satellite,
+      size: 5,
+      type: 'Rocoso',
+      translationPeriod: 27,
+      rotationPeriod: 12,
+      quote: 'sdfas...'
+    },
+    marte: {
+      objectType: ASTRO_TYPES.planet,
+      size: 5,
+      type: 'Rocoso',
+      translationPeriod: 27,
+      rotationPeriod: 12,
+      quote: 'sdfas...'
+    },
+    deimos: {
+      objectType: ASTRO_TYPES.satellite,
+      size: 5,
+      type: 'Rocoso',
+      translationPeriod: 27,
+      rotationPeriod: 12,
+      quote: 'sdfas...'
+    },
+    phobos: {
+      objectType: ASTRO_TYPES.satellite,
+      size: 5,
+      type: 'Rocoso',
+      translationPeriod: 27,
+      rotationPeriod: 12,
+      quote: 'sdfas...'
+    },
+    jupiter: {
+      objectType: ASTRO_TYPES.planet,
+      size: 5,
+      type: 'Gaseoso',
+      translationPeriod: 27,
+      rotationPeriod: 12,
+      quote: 'sdfas...'
+    },
+    saturno: {
+      objectType: ASTRO_TYPES.planet,
+      size: 5,
+      type: 'Gaseoso',
+      translationPeriod: 27,
+      rotationPeriod: 12,
+      quote: 'sdfas...'
+    },
+    urano: {
+      objectType: ASTRO_TYPES.planet,
+      size: 5,
+      type: 'Gaseoso',
+      translationPeriod: 27,
+      rotationPeriod: 12,
+      quote: 'sdfas...'
+    },
+    neptuno: {
+      objectType: ASTRO_TYPES.planet,
+      size: 5,
+      type: 'Gaseoso',
+      translationPeriod: 27,
+      rotationPeriod: 120,
+      quote: 'sdfas...'
+    }
+  };
+
   const SOLAR_SYSTEM_OBJECTS = [
     'mercurio',
     'venus',
@@ -12,6 +112,8 @@ window.onload = function () {
     'urano',
     'neptuno'
   ];
+
+  const capitalize = str => `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
 
   // var currentPercent = 0;
   // var showPercent = window.setInterval(function () {
@@ -36,7 +138,32 @@ window.onload = function () {
   //   return null;
   // }
 
-  const buttonsBinding = () => {
+  const showAstroInfo = astroObject => {
+    console.log(ASTRO_INFO[astroObject]);
+    const astroObjectTitle = document.getElementById('astroObjectTitle');
+    const astroObjectThumbId = document.getElementById('astroObjectThumbId');
+    const astroInfoDialog = document.getElementById('astroInfoDialog');
+    const objectType = document.getElementById('objectType');
+    const size = document.getElementById('size');
+    const type = document.getElementById('type');
+    const translationPeriod = document.getElementById('translationPeriod');
+    const rotationPeriod = document.getElementById('rotationPeriod');
+    const quote = document.getElementById('quote');
+
+    if (getComputedStyle(astroInfoDialog).display === 'none') {
+      astroInfoDialog.style.display = 'block';
+    }
+    astroObjectTitle.innerText = capitalize(astroObject);
+    astroObjectThumbId.src = `../img/${astroObject}.png`;
+    objectType.innerText = ASTRO_INFO[astroObject].objectType;
+    size.innerText = ASTRO_INFO[astroObject].size;
+    type.innerText = ASTRO_INFO[astroObject].type;
+    translationPeriod.innerText = ASTRO_INFO[astroObject].translationPeriod;
+    rotationPeriod.innerText = ASTRO_INFO[astroObject].rotationPeriod;
+    quote.innerText = ASTRO_INFO[astroObject].quote;
+  };
+
+  const controlButtonsBinding = () => {
     let root = document.querySelector(':root');
     var rs = getComputedStyle(root);
     //Play/pause
@@ -85,6 +212,22 @@ window.onload = function () {
         );
       });
     });
+  };
+
+  const solarSystemObjectsButtonsBinding = () => {
+    const orbits = document.getElementsByClassName('orbita');
+    [...orbits].forEach(orbit => {
+      orbit.addEventListener('click', () => {
+        showAstroInfo(orbit.id.replace(/Orbita/gi, ''));
+      });
+    });
+    const sun = document.getElementById('sol');
+    sun.addEventListener('click', () => showAstroInfo('sol'));
+  };
+
+  const buttonsBinding = () => {
+    controlButtonsBinding();
+    solarSystemObjectsButtonsBinding();
   };
 
   // root.style.setProperty('--mercurio-speed', Number(rs.getPropertyValue('--mercurio-speed').slice(0, -1)) / 3 + 's');
