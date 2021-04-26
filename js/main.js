@@ -1,5 +1,5 @@
 window.onload = function () {
-  const ASTRO_TYPES = { star: 0, planet: 1, dwarfPlanet: 2, satellite: 3 };
+  const ASTRO_TYPES = { star: 'Star', planet: 'Planet', dwarfPlanet: 'Dwarf planet', satellite: 'Satellite' };
   const ASTRO_INFO = {
     sol: {
       objectType: ASTRO_TYPES.star,
@@ -95,7 +95,8 @@ window.onload = function () {
       type: 'Gaseoso',
       translationPeriod: 27,
       rotationPeriod: 120,
-      quote: 'sdfas...'
+      quote:
+        'sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf '
     }
   };
 
@@ -232,7 +233,11 @@ window.onload = function () {
 
   // root.style.setProperty('--mercurio-speed', Number(rs.getPropertyValue('--mercurio-speed').slice(0, -1)) / 3 + 's');
 
-  const NUMBER_STARS = 200;
+  let NUMBER_STARS = 200;
+
+  if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+    NUMBER_STARS = 40;
+  }
   const STAR_TYPES = ['estrellaMini', 'estrellaMediana', 'estrellaGrande'];
 
   const generateStars = () => {
