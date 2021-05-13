@@ -13,10 +13,26 @@
     <script type="text/javascript" src="js/main.js"></script>
   </head>
   <body id="universo">
+    <div class="starDust-container">
+      <div class="starDust-filter"></div>
+      <div class="starDust-filterYellow"></div>
+    </div>
+    <svg width="0" height="0">
+      <filter id="cloud-filter">
+        <feTurbulence type="fractalNoise" baseFrequency="0.007" numOctaves="2" seed="689">
+          <animate attributeName="baseFrequency" dur="600s" values=".01;.02" repeatCount="indefinite" />
+          <animate attributeName="numOctaves" dur="300s" values="1;5" repeatCount="indefinite"></animate>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" scale="400">
+          <animate attributeName="scale" dur="600s" values="350;450" repeatCount="indefinite" />
+        </feDisplacementMap>
+      </filter>
+    </svg>
     <div id="astroInfoDialog">
       <div id="astroInfoDialogHeader">
         <span id="astroObjectTitle" class="title"></span>
         <img class="astroObjectThumb" id="astroObjectThumbId" src="" />
+        <div id="astroDialogCloseIcon">&times</div>
       </div>
       <div id="astroInfoDialogContent">
         <div>
@@ -42,7 +58,7 @@
         <div>
           <span>¿Sabías que...? </span>
         </div>
-        <div>
+        <div class="astroInfoDialogContentQuote">
           <span id="quote"></span>
         </div>
       </div>

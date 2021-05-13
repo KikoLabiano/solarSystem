@@ -1,5 +1,5 @@
 window.onload = function () {
-  const ASTRO_TYPES = { star: 'Star', planet: 'Planet', dwarfPlanet: 'Dwarf planet', satellite: 'Satellite' };
+  const ASTRO_TYPES = { star: 'Estrella', planet: 'Planeta', dwarfPlanet: 'Planeta enano', satellite: 'Satélite' };
   const ASTRO_INFO = {
     sol: {
       objectType: ASTRO_TYPES.star,
@@ -151,8 +151,11 @@ window.onload = function () {
     const rotationPeriod = document.getElementById('rotationPeriod');
     const quote = document.getElementById('quote');
 
-    if (getComputedStyle(astroInfoDialog).display === 'none') {
-      astroInfoDialog.style.display = 'block';
+    console.log(astroInfoDialog.classList);
+    // if (getComputedStyle(astroInfoDialog).display === 'none') {
+    if (!astroInfoDialog.classList.contains('astroInfoDialogShowAnimation')) {
+      astroInfoDialog.classList.remove('astroInfoDialogHideAnimation');
+      astroInfoDialog.classList.add('astroInfoDialogShowAnimation');
     }
     astroObjectTitle.innerText = capitalize(astroObject);
     astroObjectThumbId.src = `../img/${astroObject}.png`;
@@ -216,6 +219,16 @@ window.onload = function () {
   };
 
   const solarSystemObjectsButtonsBinding = () => {
+    const astroDialogCloseIcon = document.getElementById('astroDialogCloseIcon');
+
+    astroDialogCloseIcon.addEventListener('click', () => {
+      const astroInfoDialog = document.getElementById('astroInfoDialog');
+      if (astroInfoDialog.classList.contains('astroInfoDialogShowAnimation')) {
+        astroInfoDialog.classList.remove('astroInfoDialogShowAnimation');
+        astroInfoDialog.classList.add('astroInfoDialogHideAnimation');
+      }
+    });
+
     const orbits = document.getElementsByClassName('orbita');
     [...orbits].forEach(orbit => {
       orbit.addEventListener('click', () => {
@@ -233,7 +246,7 @@ window.onload = function () {
 
   // root.style.setProperty('--mercurio-speed', Number(rs.getPropertyValue('--mercurio-speed').slice(0, -1)) / 3 + 's');
 
-  let NUMBER_STARS = 200;
+  let NUMBER_STARS = 150;
 
   if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     NUMBER_STARS = 40;

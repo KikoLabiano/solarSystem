@@ -81,13 +81,18 @@ span.title {
   border-radius: 5px;
   border: 3px solid rgba(255, 255, 255, 0.5);
   color: #fff;
-  display: none;
   height: 550px;
-  left: 10px;
-  padding: 10px;
+  left: -650px;
+  padding: 10px 20px;
   position: absolute;
-  top: 10px;
+  top: 25px;
   width: 20vw;
+}
+.astroInfoDialogShowAnimation {
+  animation: slideRight 0.5s forwards;
+}
+.astroInfoDialogHideAnimation {
+  animation: slideLeft 0.5s forwards;
 }
 #astroInfoDialogHeader {
   display: flex;
@@ -102,6 +107,19 @@ img.astroObjectThumb {
   width: 100px;
   height: 100px;
 }
+#astroDialogCloseIcon {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  background-color: rgba(51, 51, 51, 1);
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  font-size: 20pt;
+  text-align: center;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+}
 #astroInfoDialogContent {
   height: 75%;
   display: flex;
@@ -110,6 +128,10 @@ img.astroObjectThumb {
 
 #astroInfoDialogContent div {
   padding: 10px 5px;
+}
+
+.astroInfoDialogContentQuote {
+  overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
@@ -461,6 +483,30 @@ img.astroObjectThumb {
   animation: 2s estrellaGrande linear infinite;
 }
 
+/* Polvo estelar*/
+.starDust-container {
+  width: 150%;
+  height: 125%;
+}
+.starDust-filter {
+  border-radius: 50%;
+  transform: translate(-70vw, -35vh);
+  filter: url(#cloud-filter);
+  z-index: 1;
+  height: 35%;
+  background: transparent;
+  box-shadow: rgb(173 129 222 / 20%) 60vw 65vh 100px 50px;
+}
+.starDust-filterYellow {
+  border-radius: 50%;
+  transform: translate(-70vw, -42vh);
+  filter: url(#cloud-filter);
+  z-index: 1;
+  height: 25%;
+  background: transparent;
+  box-shadow: rgb(255 247 0 / 8%) 60vw 65vh 110px 50px;
+}
+
 @-webkit-keyframes spin-right {
   100% {
     -webkit-transform: rotate(360deg);
@@ -519,5 +565,25 @@ img.astroObjectThumb {
   }
   100% {
     box-shadow: 0 0 150px 0px #ff9b1c, 0 0 25px -4px #ff9b1c, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    display: none;
+    left: -650px;
+  }
+  100% {
+    left: 30px;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    display: none;
+    left: 30px;
+  }
+  100% {
+    left: -650px;
   }
 }
