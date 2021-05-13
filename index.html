@@ -13,7 +13,7 @@
     <script type="text/javascript" src="js/main.js"></script>
   </head>
   <body id="universo">
-    <div class="starDust-container">
+    <div id="starDust" class="starDust-container">
       <div class="starDust-filter"></div>
       <div class="starDust-filterYellow"></div>
     </div>
@@ -74,6 +74,16 @@
       <div class="controlInfo">
         <span id="speedInfo"></span>
       </div>
+      <div class="controlButtonsChecks">
+        <div>
+          <input type="checkbox" id="starDust-check" value="starDust-check" checked />
+          <label for="starDust-check">Ver polvo estelar</label>
+        </div>
+        <div>
+          <input type="checkbox" id="satelites-check" value="satelites-check" checked />
+          <label for="satelites-check">Ver satélites</label>
+        </div>
+      </div>
     </div>
     <div id="sistemaSolar">
       <div id="sol"></div>
@@ -87,7 +97,7 @@
 
       <div class="orbita" id="tierraOrbita">
         <div id="tierra">
-          <div class="orbita" id="lunaOrbita">
+          <div class="orbita orbitaSatelite" id="lunaOrbita">
             <div id="luna"></div>
           </div>
         </div>
@@ -95,10 +105,10 @@
 
       <div class="orbita" id="marteOrbita">
         <div id="marte">
-          <div class="orbita" id="phobosOrbita">
+          <div class="orbita orbitaSatelite" id="phobosOrbita">
             <div id="phobos"></div>
           </div>
-          <div class="orbita" id="deimosOrbita">
+          <div class="orbita orbitaSatelite" id="deimosOrbita">
             <div id="deimos"></div>
           </div>
         </div>

@@ -216,6 +216,30 @@ window.onload = function () {
         );
       });
     });
+
+    //Checks
+    const starDustCheck = document.getElementById('starDust-check');
+    starDustCheck.addEventListener('click', () => {
+      const starDust = document.getElementById('starDust');
+      if (!starDustCheck.checked) {
+        starDust.style.display = 'none';
+      } else {
+        starDust.style.display = 'inherit';
+      }
+    });
+    const satelliteCheck = document.getElementById('satelites-check');
+    const satelliteOrbits = document.getElementsByClassName('orbitaSatelite');
+    satelliteCheck.addEventListener('click', () => {
+      if (!satelliteCheck.checked) {
+        [...satelliteOrbits].forEach(satelliteOrbit => {
+          satelliteOrbit.style.display = 'none';
+        });
+      } else {
+        [...satelliteOrbits].forEach(satelliteOrbit => {
+          satelliteOrbit.style.display = 'inherit';
+        });
+      }
+    });
   };
 
   const solarSystemObjectsButtonsBinding = () => {
