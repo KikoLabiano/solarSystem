@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/styles.css" />
     <script type="text/javascript" src="js/main.js"></script>
   </head>
-  <body id="universo">
+  <body id="universe">
     <div id="starDust" class="starDust-container">
       <div class="starDust-filter"></div>
       <div class="starDust-filterYellow"></div>
@@ -36,27 +36,27 @@
       </div>
       <div id="astroInfoDialogContent">
         <div>
-          <span class="text">Tipo de objeto: </span>
+          <span class="textTitle">Tipo de objeto: </span>
           <span id="objectType"></span>
         </div>
         <div>
-          <span>Tamaño: </span>
+          <span class="textTitle">Tamaño: </span>
           <span id="size"></span>
         </div>
         <div>
-          <span>Tipo de material: </span>
+          <span class="textTitle">Tipo de material: </span>
           <span id="type"></span>
         </div>
         <div>
-          <span>Periodo de traslación: </span>
+          <span class="textTitle">Periodo de traslación: </span>
           <span id="translationPeriod"></span>
         </div>
         <div>
-          <span>Periodo de rotación: </span>
+          <span class="textTitle">Periodo de rotación: </span>
           <span id="rotationPeriod"></span>
         </div>
         <div>
-          <span>¿Sabías que...? </span>
+          <span class="textTitle">¿Sabías que...? </span>
         </div>
         <div class="astroInfoDialogContentQuote">
           <span id="quote"></span>
@@ -80,8 +80,21 @@
           <label for="starDust-check">Ver polvo estelar</label>
         </div>
         <div>
-          <input type="checkbox" id="satelites-check" value="satelites-check" checked />
-          <label for="satelites-check">Ver satélites</label>
+          <input type="checkbox" id="satellites-check" value="satellites-check" checked />
+          <label for="satellites-check">Ver satélites</label>
+        </div>
+        <div>
+          <input type="checkbox" id="stars-check" value="stars-check" checked />
+          <label for="stars-check">Ver estrellas</label>
+        </div>
+        <div>
+          <select id="stars-number" value="stars-number">
+            <option>50</option>
+            <option>100</option>
+            <option>150</option>
+            <option selected>200</option>
+          </select>
+          <label for="stars-number">Número de estrellas</label>
         </div>
       </div>
     </div>
@@ -126,6 +139,9 @@
       </div>
       <div class="orbita" id="neptunoOrbita">
         <div id="neptuno"></div>
+      </div>
+      <div class="orbita" id="plutonOrbita">
+        <div id="pluton"></div>
       </div>
     </div>
   </body>

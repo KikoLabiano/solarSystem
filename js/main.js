@@ -97,6 +97,15 @@ window.onload = function () {
       rotationPeriod: 120,
       quote:
         'sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf '
+    },
+    pluton: {
+      objectType: ASTRO_TYPES.dwarfPlanet,
+      size: 5,
+      type: 'Rocoso',
+      translationPeriod: 27,
+      rotationPeriod: 120,
+      quote:
+        'sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf sdfas...asfdasdfasdfasdf asdf asdf asdf asdf asdf asdf asdf sdf asdf asdf asdf sadf '
     }
   };
 
@@ -227,7 +236,7 @@ window.onload = function () {
         starDust.style.display = 'inherit';
       }
     });
-    const satelliteCheck = document.getElementById('satelites-check');
+    const satelliteCheck = document.getElementById('satellites-check');
     const satelliteOrbits = document.getElementsByClassName('orbitaSatelite');
     satelliteCheck.addEventListener('click', () => {
       if (!satelliteCheck.checked) {
@@ -239,6 +248,32 @@ window.onload = function () {
           satelliteOrbit.style.display = 'inherit';
         });
       }
+    });
+
+    const starsCheck = document.getElementById('stars-check');
+    const starsNumber = document.getElementById('stars-number');
+    const stars = document.getElementsByClassName('star');
+    starsCheck.addEventListener('click', () => {
+      if (!starsCheck.checked) {
+        [...stars].forEach(star => {
+          star.style.display = 'none';
+        });
+        starsNumber.disabled = true;
+      } else {
+        [...stars].forEach(star => {
+          star.style.display = 'inherit';
+        });
+        starsNumber.disabled = false;
+      }
+    });
+
+    const numberStarsSelect = document.getElementById('stars-number');
+    numberStarsSelect.addEventListener('change', e => {
+      const stars = document.getElementsByClassName('star');
+      [...stars].forEach(star => {
+        star.remove();
+      });
+      generateStars(e.target.value);
     });
   };
 
@@ -275,19 +310,19 @@ window.onload = function () {
   if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     NUMBER_STARS = 40;
   }
-  const STAR_TYPES = ['estrellaMini', 'estrellaMediana', 'estrellaGrande'];
+  const STAR_TYPES = ['starMini', 'starHalf', 'starBig'];
 
-  const generateStars = () => {
-    const body = document.getElementById('universo');
-    for (let i = 0; i < NUMBER_STARS; i++) {
+  const generateStars = numberOfStars => {
+    const body = document.getElementById('universe');
+    for (let i = 0; i < numberOfStars; i++) {
       const star = document.createElement('span');
-      star.className += `estrella ${STAR_TYPES[Math.floor(Math.random() * 3)]}`;
+      star.className += `star ${STAR_TYPES[Math.floor(Math.random() * 3)]}`;
       star.style.left = Math.floor(Math.random() * window.innerWidth) + 'px';
       star.style.top = Math.floor(Math.random() * 1200) + 'px';
       body.appendChild(star);
     }
   };
 
-  generateStars();
+  generateStars(NUMBER_STARS);
   buttonsBinding();
 };
