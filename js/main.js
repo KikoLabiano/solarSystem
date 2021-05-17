@@ -227,6 +227,17 @@ window.onload = function () {
     });
 
     //Checks
+    const pixelArtCheck = document.getElementById('pixelArt-check');
+    pixelArtCheck.addEventListener('click', () => {
+      if (pixelArtCheck.checked) {
+        root.style.setProperty(`--font-family`, "'Press Start 2P', cursiva");
+        root.style.setProperty(`--font-size`, '11pt');
+      } else {
+        root.style.setProperty(`--font-family`, 'escolar');
+        root.style.setProperty(`--font-size`, '20pt');
+      }
+    });
+
     const starDustCheck = document.getElementById('starDust-check');
     starDustCheck.addEventListener('click', () => {
       const starDust = document.getElementById('starDust');
@@ -305,7 +316,7 @@ window.onload = function () {
 
   // root.style.setProperty('--mercurio-speed', Number(rs.getPropertyValue('--mercurio-speed').slice(0, -1)) / 3 + 's');
 
-  let NUMBER_STARS = 150;
+  let NUMBER_STARS = 100;
 
   if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
     NUMBER_STARS = 40;
