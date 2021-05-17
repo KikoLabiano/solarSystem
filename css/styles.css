@@ -319,6 +319,7 @@ img.astroObjectThumb {
   border-radius: 100%;
   border: 1px solid black;
   background-color: #4d8cff;
+  /* background-image: url('../img/pixel/Tierra.png'); */
 }
 
 #lunaOrbita {
@@ -430,9 +431,10 @@ img.astroObjectThumb {
   border-radius: 100%;
   border: 1px solid black;
   background-color: brown;
+  /* background: url(../img/pixel/Jupiter.png) no-repeat; */
 }
 
-#jupiter:after {
+.jupiterStorm:before {
   content: '';
   position: absolute;
   top: 0;
@@ -461,9 +463,10 @@ img.astroObjectThumb {
   border-radius: 100%;
   border: 1px solid black;
   background-color: orange;
+  /* background: url(../img/pixel/Jupiter.png) no-repeat; */
 }
 
-#saturnoAnillos {
+.saturnoAnillos {
   position: absolute;
   top: 45px;
   left: 105px;
@@ -473,6 +476,16 @@ img.astroObjectThumb {
   border: 1px solid black;
   background-color: brown;
   transform: rotate(180deg);
+}
+
+.saturnoAnillosPixel {
+  position: absolute;
+  top: 16px;
+  left: 110px;
+  height: 60px;
+  width: 70px;
+  background: url(../img/pixel/anillos.png) no-repeat;
+  transform: rotate(306deg);
 }
 
 #uranoOrbita {
